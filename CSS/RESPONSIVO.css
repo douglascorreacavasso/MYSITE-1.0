@@ -1,0 +1,114 @@
+/*RESPONSIVO*/
+@media (min-width: 500px) and (max-width: 600px) {
+    h1 {
+      color: rgb(0, 81, 255);
+    }
+
+    .desc:after {
+      content:" In fact, it's between 500px and 600px wide.";
+    }
+  }
+  /*responsive width
+   definir width: 100% em um div de nível superior garante que ele abranja a largura a janela 
+   de visualização    e nunca seja grande ou pequeno demais para a janela de visualização. 
+   O div será encaixado, independentemente de ser um iPhone de 320 pixels de largura,
+    um Blackberry Z10 de 342 pixels de largura ou um Nexus 5 de 360 pixels de largura.
+
+Além disso, o uso de unidades relativas permite que os navegadores renderizem o conteúdo com 
+base no nível de zoom dos usuários sem a necessidade de adicionar barras de rolagem horizontais
+ na página.*/
+  div.fullWidth {
+    width: 100%;
+    height:100%;
+  }
+
+
+  @media (min-width: 360px) {
+    body {
+      font-size: 1.0em;
+    }
+  }
+/* Tiny tweaks (Pequenos ajustes) --- Como o nome em inglês implica, pouco muda no exemplo conforme o tamanho da tela muda.
+ Enquanto a largura da tela aumenta, o tamanho da fonte e o preenchimento a acompanham.*/
+  .c1 {
+    padding: 10px;
+    width: 100%;
+    height:100%;
+  }
+  
+  @media (min-width: 500px) {
+    .c1 {
+      padding: 20px;
+      font-size: 1.5em;
+    }
+  }
+  
+  @media (min-width: 800px) {
+    .c1 {
+      padding: 40px;
+      font-size: 2em;
+    }
+  }
+
+  img, embed, object, video {
+    max-width: 200%;
+    max-height:200%;
+  }
+  
+  html,
+  body,
+  span,
+  p,
+  form,
+  img,
+  a,
+  ul,
+  ol,
+  li,
+  table,
+  tr,
+  td,
+  div {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    list-style-type: none;
+  }
+  @media print { }
+
+  @media screen and (min-width:320px) { }
+  @media only screen and (min-width: 480px) { }
+  @media only screen and (min-width: 600px) { }
+  @media only screen and (min-width: 992px) { }
+  @media only screen and (min-width: 1382px) { }
+   
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min--moz-device-pixel-ratio: 1.5),
+  only screen and (-o-min-device-pixel-ratio: 3/2),
+  only screen and (min-device-pixel-ratio: 1.5) { }
+
+  @media screen and 
+(min-width: 200px) and 
+(max-width: 640px){
+
+  }
+
+  @media screen and 
+  (min-width: 768px) and 
+  (max-width: 1024px){
+    min-width: 768px;
+    max-width: 1024px;
+  }
+
+  @media screen and 
+  (min-width: 700px) and 
+  (max-width:1300px){
+    min-width: 768px;
+    max-width: 1350px;
+  }
+
+  @media screen and (min-width: 
+  1024px) {
+   #main { min-width: 1000px; }
+  }

@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <link rel="stylesheet" href="weather.css" />
+    <link rel="stylesheet" media="(max-width:600px)" href="weather-2-small.css" />
+    <link rel="stylesheet" media="(min-width:601px)" href="weather-2-large.css" />
+    <!-- Quando o navegador tiver entre 0 e 640 pixels de largura, max-640px.css será aplicado.
+Quando o navegador tiver entre 500 e 600 de largura, os estilos em @media serão aplicados.
+Quando o navegador tiver 640 ou mais pixels de largura, min-640px.css será aplicado.
+Quando a largura do navegador for maior do que sua altura, landscape.css será aplicado.
+Quando a altura do navegador for maior do que sua largura, portrait.css será aplicado. -->
+    <link rel="stylesheet" media="(max-width: 640px)" href="max-640px.css">
+    <link rel="stylesheet" media="(min-width: 640px)" href="min-640px.css">
+    <link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">
+    <link rel="stylesheet" media="(orientation: landscape)" href="landscape.css">
+    <link rel="stylesheet" href="weather.css">
+    <!-- Para inserir um ponto de interrupção em 600 pixels -->
+    <link rel="stylesheet" media="(max-width:600px)" href="weather-2-small.css">
+    <link rel="stylesheet" media="(min-width:601px)" href="weather-2-large.css">
+    <!-- PUXA CONFIGURACOES PADROES DE RESOLUCAO DE PAGINA -->
+    <link href="CSS/RESPONSIVO.css" rel="stylesheet" />
+    <title>TEXTOS</title>
+
+
+    <style>
+        .btnfechar {
+            background-image: url('imagens/PIRAMIDES/2.png');
+            top: 2%;
+            left: 100%;
+        }
+
+        div {
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+
+        .texto {
+            /*tamanho na pagina*/
+            width: 250px;
+            height: 300px;
+            /*posição na pagina*/
+            position: absolute;
+            /*define tamanho, cor e estilo de borda*/
+            border-width: 10px;
+            border-style: groove;
+            /*estilo do texto*/
+            font: bold 13px/1.4 sans-serif, verdana;
+            color: whitesmoke;
+            /*mantem texto dentro de div sem ultrapassar tamanho da mesma*/
+            overflow: hidden;
+            text-overflow: unset;
+            /*efeito de voltar a posição por tempo suave*/
+            transition: 3s;
+        }
+
+        .texto-expandido {
+            width: 99%;
+            height: 400%;
+             /*posição na pagina*/
+             position: absolute;
+            z-index: 1;
+            text-align: center;
+            transition: 2s;
+            background-color: black;
+             /*estilo do texto*/
+             font: bold 13px/1.4 sans-serif, verdana;
+            color: whitesmoke;
+            /*mantem texto dentro de div sem ultrapassar tamanho da mesma*/
+            overflow: hidden;
+            text-overflow: unset;
+        }
+
+        .texto-azul {
+            background-color: rgba(47, 0, 255, 0.438);
+            border-color: rgba(0, 174, 255, 0.74);
+             /*posição na pagina*/
+            top: 10%;
+            left: 10%;
+            /*tamanho da area do texto*/
+            width: 250px;
+            height: 300px;
+        }
+
+        .texto-verde {
+            background-color: rgba(0, 255, 85, 0.5);
+            border-color: rgba(51, 255, 0, 0.39);
+            /*tamanho da area do texto*/
+            width: 250px;
+            height: 250px;
+            /*posição na pagina*/
+            top: 13%;
+            left: 40%;
+        }
+
+        .texto-vermelho {
+            background-color: rgba(255, 0, 119, 0.438);
+            border-color: rgba(255, 0, 157, 0.384);
+            /*tamanho na pagina*/
+            width: 300px;
+            height: 450px;
+            /*posição na pagina*/
+            top: 10%;
+            left: 70%;
+        }
+
+        .texto-laranja {
+            background-color: rgba(255, 153, 0, 0.521);
+            border-color: rgba(255, 123, 0, 0.356);
+            /*tamanho na pagina*/
+            width: 450px;
+            height: 350px;
+            /*posição na pagina*/
+           top: 70%;
+            left: 3%;
+        }
+
+
+        .texto-azul-claro {
+            background-color: rgba(0, 255, 242, 0.39);
+            border-color: rgba(0, 255, 242, 0.397);
+             /*tamanho na pagina*/
+             width: 200px;
+            height: 350px;
+            /*posição na pagina*/
+           top: 65%;
+            left: 30%;
+        }
+
+        .texto-verde2 {
+            background-color: rgba(21, 255, 0, 0.445);
+            border-color: rgba(30, 255, 0, 0.342);
+           /*tamanho na pagina*/
+           width: 300px;
+            height: 300px;
+            /*posição na pagina*/
+            top: 90%;
+            left: 72%;
+        }
+
+        .texto-vermelho2 {
+            background-color: rgba(255, 0, 0, 0.377);
+            border-color: rgba(255, 0, 0, 0.411);
+             /*tamanho na pagina*/
+             width: 450px;
+            height: 150px;
+            /*posição na pagina*/
+           top: 135%;
+            left: 5%;
+        }
+
+        .texto-azul-escuro {
+            background-color: rgba(47, 0, 255, 0.425);
+            border-color: rgba(76, 0, 255, 0.404);
+            /*tamanho na pagina*/
+            width: 250px;
+            height: 250px;
+            /*posição na pagina*/
+           top: 135%;
+            left: 45%;
+        }
+
+        .texto-roxo {
+            background-color: rgba(162, 0, 255, 0.363);
+            border-color: rgba(153, 0, 255, 0.363);
+            /*tamanho na pagina*/
+            width: 250px;
+            height: 350px;
+            /*posição na pagina*/
+            top: 150%;
+            left: 75%;
+        }
+
+        .texto-amarelo-queimado {
+            background-color: rgba(238, 255, 0, 0.301);
+            border-color: rgba(255, 145, 0, 0.342);
+            border-width: 10px;
+            border-style: groove;
+             /*tamanho na pagina*/
+             width: 400px;
+            height: 250px;
+            /*posição na pagina*/
+           top: 168%;
+            left: 10%;
+        }
+           
+   
+
+
+        body {
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+
+
+
+
+
+
+
+        @keyframes btn1 {
+            0% {
+                position: absolute;
+                top: 0px;
+                height: 10px;
+                width: 10px;
+
+            }
+            100% {
+                position: absolute;
+                top: 15px;
+                left: 90px;
+                height: 180px;
+                width: 180px;
+                transform: rotate(-60deg)translateX(-30px) translateY(-15px)rotateZ(-12deg);
+            }
+        }
+
+        @keyframes btn2 {
+            0% {
+                position: absolute;
+                top: 0px;
+                height: 10px;
+                width: 10px;
+
+            }
+            100% {
+                position: absolute;
+                top: 90px;
+                left: -50px;
+                height: 180px;
+                width: 180px;
+                transform: rotate(10deg)translateX(10px) translateY(1px)rotateZ(-10deg);
+            }
+        }
+
+        @keyframes btn3 {
+            0% {
+                position: absolute;
+                top: 0px;
+                height: 10px;
+                width: 10px;
+
+            }
+            100% {
+                position: absolute;
+                top: 10px;
+                left: -170px;
+                height: 180px;
+                width: 180px;
+                transform: rotate(60deg)translateX(20px) translateY(15px)rotateZ(8deg);
+            }
+        }
+
+
+        .menu {
+            background-image: url('imagens/OLHOS/btnolhofechado.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            height: 70px;
+            width: 70px;
+            position:  absolute;
+            top: 0px;
+            left: 45%;
+        }
+
+
+        .menuA {
+            background-image: url('imagens/OLHOS/btnolhoaberto.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            height: 70px;
+            width: 70px;
+            position: absolute;
+            top: 0px;
+            left: 45%;
+        }
+
+        .box1A img {
+            animation: btn1 2s;
+            position: absolute;
+            height: 180px;
+            width: 180px;
+            top: 30px;
+            left: 60px;
+            transform: rotateZ(-68deg);
+            z-index: 1;
+        }
+
+        .box2A img {
+            animation: btn2 2s;
+            position: absolute;
+            height: 180px;
+            width: 180px;
+            top: 60px;
+            left: -35px;
+            transform: rotateZ(0deg);
+            z-index: 1;
+        }
+
+        .box3A img {
+            animation: btn3 2s;
+            position: absolute;
+            height: 180px;
+            width: 180px;
+            top: 30px;
+            left: -130px;
+            transform: rotateZ(68deg);
+            z-index: 1;
+        }
+
+        .box1 img {
+            height: 0px;
+            width: 0px;
+            opacity: 100%;
+        }
+
+        .box2 img {
+            height: 0px;
+            width: 0px;
+            opacity: 100%;
+        }
+
+        .box3 img {
+            height: 0px;
+            width: 0px;
+            opacity: 100%;
+        }
+
+
+        .test {
+            width: 100%;
+            height: 193%;
+            background: #000000;
+            transition: 3s;
+        }
+    </style>
+</head>
+
+<body background="imagens/PLANOS DE FUNDOS/planodefundotextos.jpg">
+    <!--  EXEMPLO DE MUSICA/ VIDEO <embed src="musicas/James Bay - Pink Lemonade.mp4" autostart=true loop="5" volume="50"> -->
+
+
+    <div class="menu" id="teste4" onclick="muda();">
+        <div id="teste1" class="box1">
+            <a class="linkloja" href="index.html">
+                <img src="imagens/BOTOES/btnlinkpaginas1.png" width="100" height="100" />
+            </a>
+        </div>
+        <div id="teste2" class="box2">
+            <a class="linkgaleria" href="LOJA DE PRODUTOS.html">
+                <img src="imagens/BOTOES/btnlinkpaginas2.png" width="100" height="100" />
+            </a>
+        </div>
+        <div id="teste3" class="box3">
+            <a class="linkgaleria" href="GALERIA DE FOTOS.html">
+                <img src="imagens/BOTOES/btnlinkpaginas3.png" width="100" height="100" />
+            </a>
+        </div>
+    </div>
+
+
+
+    <div class="texto texto-azul" id="idtexto1" onclick="MostraTexto('idtexto1',1);" >
+        <pre> <h2>Uso de álcool entre jovens</h2>
+O padrão de consumo entre jovens é influenciado por vários 
+fatores: família, mídia, normas culturais ou religiosas, políticas
+ públicas, etc. Existem evidências que a família e os pais influênciam
+ mais significativamente no desenvolvimentodo padrão de uso
+ de álcool entre destes jovens.
+        
+
+ Alem disso, beber na adolescência pode estar ligado
+ ao uso de outras  substâncias. Emocionalmente, 
+eles ainda estão em desenvolvimento, o que pode 
+aumentar os riscos de danos físicos, por exemplo:
+ Jovens podem ser menos sensíveis para alguns 
+efeitos tóxicos do álcool em comparação aos adultos
+ ou  pessoas mais velhas, como resultado, podem
+ beber de maneira mais pesada; O desenvolvimento
+ das vias neurais dos jovens  os deixam mais vulneráveis
+ ao dano podendo levar a problemas cognitivos e
+ outras funções fisiológicas;
+        
+
+Jovens são mais propensos que os adultos a se
+ envolverem a danos associados ao consumo de álcool,
+ tais como: Beber pesado (“porre" ou embriaguez);
+ Envolvimento em comportamentos agressivos, 
+resultando em acidentes ou ferimentos 
+(especialmente acidentes de trânsito);
+ Participação em outras atividades de risco,
+ tais como comportamento sexual de risco. 
+Algumas orientações aos pais: Mantenha um 
+relacionamento aberto com seu filho. Isso 
+aumenta a chance dele lhe contar sobre seus
+ desejos  e preocupações; Converse com seu 
+filho sobre os riscos do uso de álcool;
+        
+
+ Faça isso de forma mais aberta e positiva
+ e não de maneira ameaçadora; Tenha regras
+ claras sobre qual idade você o permitirá
+ consumir álcool (preferencialmente a idade 
+legal permitida - 18 anos ou mais).
+ Converse com ele quando ele ainda for jovem;
+ Estabeleça previamente com seu filho 
+o que será feito caso ele não cumpra as regras;
+
+       
+        </pre>
+    </div>
+    <div class="texto texto-vermelho " id="idtexto2" onclick="MostraTexto('idtexto2',2);">
+ <pre>       
+<h2>Jovens ainda enfrentam dificuldades para entrar no mercado de trabalho</h2>
+<p> Por Isabela Carvalhal Salgado O mercado de trabalho
+ atual está cada vez mais competitivo e exigente. 
+Enquanto de um lado  existe a necessidade 
+de investir em formação para ser qualificado 
+o bastante em um ambiente que busca profissionais
+ especializados, de outro lado existem jovens 
+perdendo oportunidades por não possuir 
+experiência prévia na área em  que desejam atuar.</p>
+
+<p> É quando surge o conflito entre teoria e prática 
+(essa dicotomia burra), quando na verdade elas
+deveriam estar integradas no processo de 
+aprendizagem para que se possa produzir 
+conhecimento. Existem programas  governamentais
+ de incentivo, mas a realidade é que ainda não 
+comportam a demanda, muitas pessoas 
+nem sequer chegam a ter conhecimento 
+dos projetos. Também há iniciativas privadas,
+ como a da empresa Emprego Ligado, 
+que podem ajudar  os jovens na hora
+ de preencher uma vaga. Além de 
+divulga-las gratuitamente para quem
+ se cadastra, o site possui um  blog 
+que pode ajudar a tirar dúvidas rápidas
+ e orientar os candidatos na hora de 
+escolher a área ou a melhor empresa.</p>
+
+<p>Recentemente o Juizado da Infância
+ e da Juventude de Macapá conseguiu 
+parcerias para realização do Projeto
+ Ação Jovem-Seguro,  que beneficia
+ jovens na faixa de 14 a 21 anos 
+que cumprem medidas socioeducativas,
+ ou seja, liberdade assistida, prestação
+ de serviços a comunidade e semiliberdade.
+ Os jovens recebem cursos profissionalizantes 
+gratuitamente através  do SENAI e outras 
+empresas parceiras. Empresários da 
+região estão sendo alertados sobre 
+esses futuros profissionais,  que mostram
+ desempenho positivo quando recebem
+ o espaço desejado. Além de um
+ trabalho social, tal iniciativa auxilia a não 
+reincidência dos jovens a práticas ilícitas.</p>
+
+ <p>A atitude é louvável e serve de exemplo 
+para outros estados e,  porque não
+ para iniciativa privada. O Governo 
+Federal criou o Programa Nacional 
+de Inclusão de Jovens (ProJovem),
+ incentivando adolescentes divididos
+ por categorias: adolescente, urbano,
+ campo e trabalhador. O programa 
+é destinado  a jovens de baixa renda
+ que buscam qualificação profissional.
+ Depois de treinados, são apresentados
+ a empresas associadas  ao Programa. 
+Vem crescendo entre os jovens a procura 
+por cursos técnicos. Tais cursos são
+alternativas para quem  não ingressou
+ na graduação e pretende obter uma
+ formação em menor período de tempo, 
+há ainda casos de jovens que  preferem
+ concluir um curso técnico antes de
+começar a graduação, dessa forma
+ é possível ter uma visão mais clara
+da área em que se pretende atuar, 
+alguns deles são gratuitos. </p>
+
+<p>Submeter-se a esse tipo de ensino,
+ agrega ao estudante capacidades
+ semelhantes às que são desenvolvidas
+ no próprio mercado de trabalho, além
+ de diferenciá-lo (em conhecimento técnico)
+ dos demais. Infelizmente no Brasil,
+ apenas o ensino fundamental e médio
+ não prepara o jovem para o mundo
+ competitivo do mercado, que segue 
+um padrão mínimo exigido pelas
+ empresas, o que acarreta dificuldades
+ até a idade  adulta. Para os que 
+iniciam a vida acadêmica no ensino
+ superior, a dificuldade que em tese 
+poderia ser diminuída,  ainda é agravante.</p>
+
+ <p>A maioria dos estágios, primeiro passo 
+para o profissionalismo, exigem maior
+ tempo cursado, em  média 2 anos.
+ Existe ainda o perfil de jovens, estes de 
+classe média e classe média alta, que 
+preferem adiar a entrada  no mercado, 
+dedicando-se apenas aos estudos. 
+Isso vem fazendo com que a taxa de
+ desemprego caia há mais de uma década.</p>
+        
+
+<p>São jovens entre 18 e 24 anos, que são 
+sustentados financeiramente pelos
+ pais enquanto tiverem opções
+ para aumentar  a bagagem intelectual 
+e obter vantagem para ocupar os
+ melhores cargos. Esse quadro nos
+ revela uma competição desigual
+entre os jovens que pretendem 
+ingressar no mercado de trabalho 
+brasileiro. Enquanto os jovens que 
+pertencem à famílias  de classe 
+média podem obter facilmente o
+ padrão de qualificação exigido pelo
+ mercado, os jovens de classes mais baixas
+  e de periferias encontram inúmeras
+ barreiras e dificuldades para que
+ possam se qualificar, e assim
+ ascender socialmente.  Continuamos 
+com a história das sociedades, 
+uma história de luta de classes.</p>
+</pre>
+
+    </div>
+    <div class="texto texto-verde" id="idtexto3" onclick="MostraTexto('idtexto3',3);">
+        <h2>O retorno do Brasil ao Mapa da Fome</h2>
+       <p> Depois de muitos anos, Brasil caminha para retornar ao Mapa da Fome por causa do desemprego e de cortes nos programas Bolsa
+        Família e de Aquisição de Alimentos. Pauta causa preocupação na ONU retorno do Brasil ao Mapa da Fome governo temer
+        RBA “Vamos correr juntos por um mundo sem fome. Sistema alimentar saudável, dieta saudável, vida saudável.</p><br> <p>Corra
+        com isso!“, convida o velocista jamaicano Usain Bolt, ganhador de 19 medalhas de ouro em olimpíadas e campeonatos
+        mundiais, em mensagem criada pela Organização das Nações Unidas para a Alimentação e Agricultura (FAO). Divulgada
+        no último dia 8, a campanha demonstra que a fome está no centro das preocupações da Organização das Nações Unidas
+        (ONU). Frequentemente associada a fenômenos climáticos, como a seca – em vez de à necessidade de democratização do
+        acesso à terra, à produção e distribuição de alimentos – a fome é um flagelo que afeta mais de 800 milhões de pessoas
+        em todo o mundo. </p><br>Embora mais da metade dessas pessoas estejam em países asiáticos e africanos, há famintos na América
+        Latina, Europa e também nos Estados Unidos, em bolsões de pobreza extrema, especialmente entre a população negra
+        dos estados do sul. No Brasil, a seca que chegou a matar mais de 500 mil pessoas no semiárido entre 1877 e 1879 –
+        mais da metade da população na época –, e outras 100 mil no período entre 1915 a 1917, durante a grande seca, sempre
+        rondou a população nordestina e de bolsões localizados nas periferias e centros de grandes cidades, em cortiços e
+        nas ruas. A situação inspirou Josué de Castro a mapear as principais carências nutricionais existentes no país e
+        publicar em 1946 em seu clássico Geografia da Fome no Brasil. No entanto, só começou a ser enfrentada a partir de
+        2003, com a criação do Ministério do Desenvolvimento Social e Combate a Fome, que articulado a diversas outras ações,
+        como a construção de escolas técnicas no semiárido e construção de cisternas, entre outras. Em 2014, depois de reduzir
+        em 82,1% o número pessoas subalimentadas, o Brasil finalmente deixou o vergonhoso mapa da fome da ONU. Menos de quatro
+        anos depois, o golpe que destituiu a presidenta Dilma Rousseff impôs uma agenda perversa, que afetou sobretudo a
+        população mais pobre. Cortes em benefícios e programas sociais excluíram do Programa Bolsa Família 1,1 milhão de
+        famílias, o que representa 4,3 milhões de pessoas, a maioria crianças. Com o aprofundamento da crise pela política
+        econômica, cresceu o desemprego e vieram mais cortes em ações como o Programa de Aquisição de Alimentos (PAA). Como
+        a fome voltou a rondar milhões de pessoas, a Ação da Cidadania contra a Fome, a Miséria e pela Vida retomou em 2017
+        a campanha Natal sem Fome. Foram arrecadadas 900 toneladas de alimentos – quase 400 mil quilos a mais do que a meta
+        estimada – distribuídos por todo o país. Sem ter a pretensão de solucionar o problema no Brasil, a campanha visa
+        chamar a atenção para o problema e mobilizar a população para a luta por direitos. Ronco da fome O tema foi destaque
+        de capa da edição de março da revista Radis Comunicação e Saúde, da Escola Nacional de Saúde Pública Sergio Arouca,
+        ligada à Fundação Oswaldo Cruz (Fiocruz). Em o Ronco da Fome, os editores destacam o fato de o Brasil ser um dos
+        maiores produtores mundiais de alimentos em razão de sua grande extensão territorial e capacidade agrícola. E que
+        apesar disso, um contingente estimado pelo IBGE em 3% de nossa população ainda não tem o suficiente para sua nutrição.
+        A desigualdade social, a histórica concentração fundiária, a monocultura para exportação e nutrição animal são apontados
+        como elementos que impedem o acesso de alimentos para todos, principalmente entre os camponeses nordestinos, que
+        ainda enfrentam grandes secas, cujos efeitos tendem a se agravar com uma política de congelamento dos gastos públicos
+        por 20 anos. À Radis, a antropóloga e pesquisadora Maria Emília Pacheco, integrante da Federação de Órgãos para Assistência
+        Social e Educacional (Fase), afirmou que “o curto período de experimentação positiva nem bem começou e já está sendo
+        desconstruído“. E o agrônomo José Graziano, presidente da FAO, afirmou que a crise “terminou por impedir que se consolidasse
+        uma política de segurança alimentar” e que na recessão econômica os investimentos em programas sociais precisam ser
+        aumentados. Aula O retorno ao mapa da fome da ONU, que ronda o Brasil, foi tema de aula inaugural nesta segunda-feira
+        da Escola Nacional de Saúde Pública Sérgio Arouca (ENSP/Fiocruz). Na avaliação dos participantes, o país pode sim
+        retornar ao vergonhoso mapa: de 2014 a 2016, o número de pessoas em extrema pobreza no Brasil saltou de 5.162.737
+        para 9.972.090. No mundo, de 2015 para 2016, os conflitos armados e crise econômica provocaram crescimento da fome,
+        atingindo mais de 800 milhões de pessoas. “Enfrentar a fome é enfrentar a pobreza extrema. Na medida em que se coloca
+        a questão da alimentação no âmbito da saúde pública, trilhamos o caminho certo“, disse o economista Francisco Menezes,
+        coordenador do Instituto Brasileiro de Análises Sociais e Econômicas (Ibase). “A segurança alimentar deve ser uma
+        política de Estado. Se o Natal Sem Fome, uma organização não-governamental, tinha condições de arrecadar alimentos
+        e doar à população, o poder público teria possibilidades de fazer muito mais“, protestou Daniel de Souza, filho do
+        sociólogo Herbert de Souza, o Betinho e presidente daquela ONG. Conforme dados apresentados, a situação extrema de
+        pobreza afeta 4,2% da população brasileira, especialmente no Nordeste e Norte. “O desmonte das políticas de assistência
+        social vitima a população mais pobre. E a situação é de agravamento. Denunciamos a possibilidade de o Brasil entrar
+        no mapa da fome. Não pode haver ajuste fiscal que viole os direitos humanos como a Emenda do Teto de Gastos. Deixo
+        aqui duas perguntas: Que país teremos se prosseguirmos assim? Tudo isso aconteceria se a democracia brasileira tivesse
+        sido preservada? Isso indica qual deve ser nosso campo de luta“, refletiu Francisco Menezes, do Ibase. Assista a
+        seguir trecho do documentário Histórias da Fome no Brasil, idealizado por Daniel de Souza, presidente da Ação da
+        Cidadania. O documentário mostra a cronologia da fome no país – do Brasil Colônia até as recentes políticas públicas
+        recentes que levaram o Brasil a sair do Mapa da Fome da ONU.
+    </div>
+    <div class="texto  texto-laranja" id="idtexto4" onclick="MostraTexto('idtexto4',4);">
+        <h2>Francisco e a caça aos pedófilos</h2>
+        Por Mirticeli Dias de Medeiros* Há quem diga que Francisco tem perseguido arbitrariamente bispos contrários à sua linha.
+        Desconfiaram, por exemplo, quando ele tratou com extrema rigidez o caso do bispo paraguaio Rogelio Ricardo Livieres
+        Plano, em 2014, suspeito de ter encoberto um padre pedófilo em sua cidade. Alguns membros da diocese de Ciudad del
+        Este, onde o prelado conservador atuava, alegaram que ele teria sofrido uma “perseguição ideológica”. O fato é que
+        tal afastamento provocou uma enorme ruptura não só na região, mas em todo o país, uma vez que jamais tenha ficado
+        claro o real motivo do afastamento. O bispo, que morreu em 2015, sustentou sempre sua inocência, o que levou o Vaticano
+        a alegar que o motivo da demissão nunca esteve ligado à pedofilia, mas às suas práticas pastorais, entre elas questões
+        ligadas à educação do clero e a problemas de relacionamento com o episcopado paraguaio. O Jornal El País, à época,
+        chegou a estampar a seguinte manchete: “El obispo destituido sin contemplaciones por Francisco”. Com a morte do bispo,
+        o assunto também morreu, inclusive na internet. Por outro lado, os mesmos que classificaram como arbitrárias as atitudes
+        de Francisco, não citaram que ele agiu com o mesmo rigor em 2015 contra o secretário pessoal, biógrafo e vice-postulador
+        da causa de canonização de Óscar Romero, bispo salvadorenho morto pelos esquadrões da morte em 1980. Padre Jesús
+        Delgado foi dispensado de suas funções sacerdotais em 2016 através de um processo definido “rápido e sem piedade”,
+        já que foi o primeiro religioso incardinado na arquidiocese de San Salvador a ser punido por crimes sexuais. Os abusos
+        teriam começado alguns anos após da morte do mártir latino-americano e foram cometidos contra uma criança de 9 anos.
+        Certamente, se Francisco atuasse seguindo os parâmetros do corporativismo, jamais teria permitido que alguém ligado
+        à canonização do ícone da causa dos pobres na América Latina se tornasse alvo de um escândalo. Como deu para notar,
+        são os próprios católicos a informarem “pela metade” o que Francisco tem feito contra a pedofilia. Apesar disso,
+        não é possível deixar de admitir a gafe cometida pelo próprio pontífice argentino em relação ao Chile, em janeiro
+        deste ano. Alguns interpretam que o seu apoio inicial ao bispo chileno tenha ocorrido por falta de informação. Outros
+        dizem que Francisco tenha errado por precipitar um parecer diante de uma investigação que estava em curso. Além disso,
+        não podemos nos esquecer que os anos 2014 e 2015, entre gafes e vacilos diplomáticos, foram os anos que o novo papa
+        escolheu para mostrar ao mundo que tipo de programa de pontificado estava disposto a cumprir. Em 2014, ele criou
+        a comissão vaticana de combate ao abuso de menores, colocando à frente o cardeal americano Sean Patrick O’Malley.
+        Certamente, esse foi o período no qual o papa argentino, motivado pelos escândalos envolvendo a igreja americana,
+        os quais ganharam repercussão internacional - basta lembrarmos do lançamento do filme Spotlight - , uniu-se a O’Malley
+        para dar uma resposta rápida diante de tudo o que pudesse manchar ainda mais o nome da Igreja. Entre os anos 2016
+        e 2017, membros da comissão, entre os quais alguns daqueles que sofreram abusos por parte de expoentes do clero,
+        denunciaram a “estrutura engessada do Vaticano”, o que faria com que o combate à pedofilia, segundo eles, andasse
+        a passos lentos. Porém, a Santa Sé se defendeu dizendo que tal comissão havia sido criada para atuar sobretudo na
+        prevenção de abusos, uma vez que outros organismos vaticanos se responsabilizam pelas questões relacionadas às punições
+        em colaboração com as autoridades civis. Sendo assim, qual foi a mudança que Francisco conseguiu promover até agora?
+        A mais importante é que os bispos, canonicamente, passarão a ser responsabilizados com mais rigor caso acobertem
+        alguns desses criminosos. Esse tipo de atitude passa a ser considerada um ato grave entre aqueles elencados pelo
+        código de direito canônico que podem culminar na remoção do cargo eclesiástico. Uma coisa é certa: a tolerância zero
+        de Francisco voltou ao centro do seu discurso nesta semana, após ter convocado, a Santa Marta, vítimas de abusos
+        sexuais por parte do padre chileno Fernando Karadima. Agora, resta observarmos como se moverá Francisco diante das
+        acusações de acobertamento envolvendo colaboradores próximos, como é o caso do cardeal australiano George Pell. Aguardemos
+        as cenas dos próximos capítulos... *Mirticeli Dias de Medeiros é jornalista e mestre em História da Igreja pela Pontifícia
+        Universidade Gregoriana de Roma. Desde 2009, cobre primordialmente o Vaticano para meios de comunicação no Brasil
+        e na Itália, sendo uma das poucas jornalistas brasileiras credenciadas como vaticanista junto à Sala de Imprensa
+        da Santa Sé.
+    </div>
+    <div class="texto  texto-azul-claro" id="idtexto5" onclick="MostraTexto('idtexto5',5);">
+        <h2>Crime mata mais por dia no Brasil que o confronto entre Israel e Palestina</h2>
+        Publicado no começo de julho, o mais recente Mapa da Violência mostra que o número de homicídios no Brasil sobe a cada ano.
+        Em 2012, o ano com os dados mais recentes, 56.325 brasileiros foram vítimas de homicídio, o que resulta em uma média
+        de 154 mortes por dia. Já no confronto entre Israel e Palestina, desde o dia 8 de julho, quando Israel começou a
+        investida contra o Hamas em Gaza, foram contabilizadas 1.901 mortes (1.834 palestinos e 67 israelenses). O que resulta
+        numa média de 66 mortes por dia.
+    </div>
+    <div class="texto  texto-verde2" id="idtexto6" onclick="MostraTexto('idtexto6',6);">
+        <h2>Teoria Queer, o que é isso?</h2>
+        Tornou-se consideravelmente comum vermos ativistas, sobretudo transfeministas (como eu), falarem de Teoria Queer. Esses dias,
+        fui interpelada por uma amiga que me perguntava: “Diabéisso de Teoria Queer?”. De fato, é uma forma de saber que
+        a Universidade não tende a ensinar aos estudantes de graduação, e, apesar de existir muito material na internet sobre
+        o […] Por Helena Vieira Tornou-se consideravelmente comum vermos ativistas, sobretudo transfeministas (como eu),
+        falarem de Teoria Queer. Esses dias, fui interpelada por uma amiga que me perguntava: “Diabéisso de Teoria Queer?”.
+        De fato, é uma forma de saber que a Universidade não tende a ensinar aos estudantes de graduação, e, apesar de existir
+        muito material na internet sobre o assunto, é raro que paremos nossas vidas para procurar um texto que responda:
+        O que é teoria Queer? Antes, contudo, é importante entendermos o que é “queer”. Que termo é esse? transbordando O
+        nome: Queer Queer é uma palavra inglesa, usada por anglófonos há quase 400 anos. Na Inglaterra havia até uma “Queer
+        Street”, onde viviam, em Londres, os vagabundos, os endividados, as prostitutas e todos os tipos de pervertidos e
+        devassos que aquela sociedade poderia permitir. O termo ganhou o sentido de “viadinho, sapatão, mariconha, mari-macho”
+        com a prisão de Oscar Wilde, o primeiro ilustre a ser chamado de “queer”. Desde então, o termo passou a ser usado
+        como ofensa, tanto para homossexuais, quanto para travestis, transexuais e todas as pessoas que desviavam da norma
+        cis-heterossexual. Queer era o termo para os “desviantes”. Não há em português um sinônimo claro, talvez, como propõe
+        a professora Berenice Bento, possamos pensar o queer como “transviado”. Leigh Bowery - ícone queer dos anos 70, modelo,
+        estilita e performer. Leigh Bowery – ícone queer dos anos 70, modelo, estilita e performer. A Teoria Queer A Teoria
+        Queer começa a se consolidar por volta dos anos 90, com a publicação do livro “Problemas de Gênero” (Gender Troube)
+        da Judith Butler. Fruto de uma trajetória que ela já vinha acompanhando desde um seminário, que carregava o nome
+        “queer”, feito nos anos 80, por Teresa de Lauretis. De Lauretis, foi a primeira a pensar em “Tecnologias de Gênero”,
+        aqui entendidas como as técnicas de ser homem ou ser mulher que aprendemos desde cedo. Nos anos 70, as universidades
+        americanas, são tomadas (ainda bem), por movimentos populares, e começam a criar os chamados “Estudos Culturais”
+        como forma de dar conta da compreensão do crescente Movimento Negro – marcadamente os Panteras Negras – e para dar
+        conta de outros movimentos como o “Free Speech” (Liberdade de Expressão), e do movimento feminista – com a criação
+        dos Women Studies. Assim como outros movimentos, como os movimentos gay e lésbicos. Antes de prosseguir sobre “O
+        que é a Teoria Queer”? Acho importante fazer uma pausa para historicizar o conceito de “Gênero” , pois a Teoria Queer
+        é sobre tudo aquilo que escapa a nossas formulações habituais. Às formulações do senso comum. Primeira pessoa no
+        mundo a conseguir registro civil como gênero neutro. Nem homem e nem mulher. Isso ocorreu na Austrália e seu nome
+        é Norrie. Primeira pessoa no mundo a conseguir registro civil como gênero neutro. Nem homem e nem mulher. Isso ocorreu
+        na Austrália e seu nome é Norrie. Gênero Não é possível falar em Teoria Queer sem pensarmos na categoria de “Gênero”
+        como sendo algo fluido, socialmente construído, performado e sistêmico. Parafraseando Teresa de Lauretis: um sistema
+        sexo-semiótico, de interpretação dos dados biológicos como produtores de diferenças, que não são per si, mas produtos
+        da interpretação arbitrária dos “marcadores biológicos”. Existem, ainda segundo a autora “Tecnologias de Gênero”,
+        ou seja, construção de técnicas de viver que determinam como um sujeito pode se inserir na sociedade segundo normas
+        específicas de “ser homem” ou “ser mulher”. Gênero é um conceito que surge fora da gramática e da linguística, aproximadamente
+        nos anos 1950, quando o Dr. John Money, da Universidade John Hopkins, o utiliza no estudo da redesignação sexual
+        de pessoas intersexuais. Neste caso, John se pergunta: Se estas pessoas nasceram com genitália ambígua, como é possível
+        que o genital seja fator decisivo na constituição do gênero? Não pode ser. Então, utiliza-se de tal conceito, para
+        designar o resultado de seu tratamento de “reorientação do gênero” das pessoas intersexo. No entanto, o modelo de
+        compreensão do Gênero proposto por ele se mostrou falho, e hoje existem movimentos e demandas de pessoas intersexo
+        para que elas tenham autonomia na decisão do gênero ao qual se identificam, e não fiquem a mercê de uma decisão médico-familiar.
+        Entretanto, não podemos desconsiderar que John Money avançou no descolamento do gênero e do genital. Uma relação
+        direta e não arbitrária, para compreendê-los, como distintos , possibilitando, apesar de seus erros, desdobramentos
+        teóricos importantes. Paralelamente aos estudos de John Money, começaram a surgir, dentro das universidades, demandas
+        para que existam estudos e disciplinas, até então consideradas não acadêmicas, como os estudos negros, latinos, feministas,…
+        Demandas que surgem, não no seio das universidades, mas a partir de vários movimentos sociais nos EUA. Dando origem,
+        assim, aos estudos culturais, negros, e ao campo conhecido como Women Studies. É no âmbito dos “Estudos das Mulheres”
+        que o conceito de Gênero passa a figurar de forma semelhante (cof) ao que conhecemos hoje. A partir da afirmação
+        já famosa de Simone de Beauvoir em seu livro “O Segundo Sexo” – ” Não se nasce mulher, se chega a sê-lo” – que inicio
+        um parênteses. Essa afirmação de Simone, não é uma afirmação diretamente sobre “Gênero”, mas sobre a mulher, que
+        para Beauvoir, não era compreendida como um “outro”, mas como uma subalternidade que só podia se constituir em relação
+        ao sujeito “homem”, em sua dependência. O devir mulher, não poderia, na ótica de Beauvoir, caber em um entendimento
+        do “devir homem”, de modo que, os primeiros estudos feministas, nos trazem uma ótica ainda essencialista de “diferença
+        de gênero”, diferença essa que continua a se constituir a partir de novas interpretações dos dados biológicos. Os
+        Estudos Feministas, até então, se centravam em um determinado sujeito, em uma determinada mulher, até que surgem,
+        com Angela Davis, e outras feministas negras, latinas, operárias, lésbicas (com grande enfoque no “continuum lésbico”
+        de Monique Wittig, em seu livro “O pensamento heterossexual”), a crítica a este sujeito do “feminismo clássico”,
+        ou seja, a crítica a um feminismo que havia se mostrado branco, de classe média, acadêmico e elitista. Ainda neste
+        período surgem também, os “Estudos de Gênero” que constroem uma crítica ao feminismo, ao pensar as “masculinidades”,
+        aliadas aos estudos Gays e Lésbicos, oriundos das demandas sociais que surgiram após a Revolta de Stonewall. É neste
+        momento que “Gênero” passa a ser concebido em sua fluidez e a afirmação de Simone de Beauvoir é ampliada, a partir
+        de um questionamento simples: “Se existe um devir mulher, porque não poderia existir um ‘devir gênero’?”. Entretanto,
+        apesar deste questionamento, os estudos e movimentos gays e lésbicos se tornaramm higienizados, defendendo um corpo
+        gay desejável, belo, e sobretudo, heteronormativo. É criado, como diria Guacira Lopes Louro em seu texto “Teoria
+        Queer- Uma política pós-identitária para a educação”, uma identidade gay “positiva”, e, obviamente, essa identidade
+        positiva, subentende a construção de uma identidade “negativa”, geralmente associada ao gay afeminado, à travesti,
+        e às lésbicas masculinizadas e homens trans. Neste momento ainda não havia uma distinção teórica clara entre Identidade
+        de Gênero e Sexualidade, tal distinção se produz apenas com o trabalho teórico da antropóloga feminista Gayle Rubin,
+        em seu artigo “The Traffic in Women: Notes on the ‘Political Economy’ of Sex”. Artigo no qual ela afirma ser necessário
+        pensar como categorias radicalmente distintas a sexualidade e o gênero, mesmo que, em determinados momentos, como
+        posteriormente nos mostra Judith Butler (em seu livro, “Gender Trouble”), tais categorias se amparem em sustentação
+        mútua da cis-heteronorma. judith_butler_teoria_queer_seminario_sao_paulo Autora de Gender Trouble e uma das ” mães”
+        da Teoria Queer É neste contexto da higienização das identidades “gays e lésbicas” e do questionamento da identidade
+        do “ser mulher” e do ” ser homem” que surge um movimento pautado nas diferenças, portanto não-assimilacionista, como
+        ferramenta de crítica. Tal movimento é teórico e também social, a “Teoria Queer”, termo agora ressignificado como
+        forma de empoderamento. É neste momento, a partir de uma associação teórica com os estudos pós-estruturalistas de
+        Deleuze, Derrida e Foucault, que se começa a pensar o próprio Gênero como “ficção política encarnada”, termo cunhado
+        por Paul. B. Preciado em palestra dada no “Hay Festival”, em Cartagena. No bojo destas discussões surge também a
+        reflexão sobre a travestilidade e a transexualidade como experiências de gênero – a transfeminilidade como uma forma
+        de mulheridade. Essa compreensão é importante, quando nos deparamos com discursos essencializadores do ser mulher.
+        Judith Butler, em seu livro “Gender Trouble”, inicia com um questionamento que considero vital: “Quem é o sujeito
+        do feminismo?”, ” É possível, pensar de forma categórica e universalizante em ‘mulher’?”. A resposta, obviamente
+        é “não”, é possível pensar em “mulheres”, em “mulheridades”, em vivências femininas, mas não é possível universalizá-las
+        na produção de um conceito identitário imutável. É neste sentido que a vivência das mulheres trans, das travestis
+        e das pessoas não-binárias que se identificam com a feminilidade podem ser compreendidas como vivências femininas,
+        e que devem ser respeitadas como tal. Obviamente, há diferenças na vivência de uma mulher cisgênero e de uma mulher
+        trans. Disso não há dúvidas, entretanto, ambas possuem vivências de suas feminilidades, das opressões diárias, dos
+        enfrentamentos a partir de uma perspectiva do feminimismo. Afinal, o que é a Teoria Queer? É importante notar que
+        a Teoria Queer não propõe um modelo “queer” de mundo. O queer é justamente o estranho. É aquele que se narra ou é
+        narrado fora das normas. A Teoria Queer propõe o questionamento às epistemes (pressupostos de saber), ao que entendemos
+        como verdade, às noções de uma essência do masculino, de uma essência do feminino, de uma essência do desejo. Para
+        a Teoria Queer é preciso olhar para esses conceitos e tentar perceber que não se tratam, de forma alguma de uma essência,
+        ou mesmo, que não há uma ontologia do todo, mas, no máximo, uma relação de mediação cultural dos marcadores biológicos.,
+        A teoria queer, como diria meu querido Paul Preciado, é uma teoria de empoderamento dos corpos subalternos, e não
+        o empoderamento assimilacionista. O empoderamento que nos faz fortes em nossas margens e ocupar os espaços com nossos
+        corpos transviados. A Teoria Queer e o Brasil Queer não é um termo inteligível no Brasil. As pessoas não se descrevem
+        como queer por aqui. Ao menos, não as pessoas que não tem acesso a essa teoria. Mas no Brasil, os mesmos processos
+        de normatização e subalternização dos corpos estão presentes. Aqui não há o queer, mas há “o traveco”. Não há o queer,
+        mas há “o viadinho”. Não falam queer, mas falam “a sapatona”. Acredito, que a Teoria Queer, possa nos ajudar a construir
+        uma teoria transviada nossa. Que empodere nossos corpos subalternos. Como bem ressalta a transfeminista Daniela Andrade,
+        os termos “transviada ou transviado” não englobam pessoas trans, pois supõe uma mistura, até conceitual de identidade
+        de gênero e sexualidade, coisa que nós, homens trans, mulheres trans, travestis e pessoas trans de uma forma geral,
+        temos lutado imensamente pra distinguir uma da outra. A tensão Teoria Queer e Identidades Não binárias É fato que
+        ninguém é transexual simplesmente por ter “aprendido com a Teoria Queer” ou qualquer outra teoria. Muito antes dessas
+        teorias já existiam as pessoas trans. Eu escrevo desde um lugar muito específico: travesti, gorda, pobre, acadêmica
+        e não binária. A Teoria Queer enfatiza que o gênero não é uma verdade biológica, mas um sistema de captura social
+        das subjetividades. Isso significa que não somos nada ontologicamente? Não. Significa que existe uma percepção, por
+        vezes disruptiva, entre como me sinto e como a norma diz que devo me sentir. A percepção subjetiva que tenho de mim,
+        é minha e não cabe a nenhuma teoria definí-la. Entretanto, a enunciação disso, ou seja, a capacidade de dizer, enquanto
+        ato de fala (como nos diz Austin), e performance, passa pelo conhecer. Eu nasci e cresci na periferia de São Paulo,
+        e agora vivo na periferia de Caucaia, no Ceará. Na periferia, não existem, aos olhos da norma, pessoas não binárias.
+        Eu mesma, ao longo de toda a minha vida nunca me percebi como homem, nem como mulher. Eu era “o gayzinho” e “o viadinho”,
+        depois que descobri a transgeneridade é que percebi que eu podia enunciar o que sou: sou travesti não reivindico
+        ser mulher, não reivindico ser homem, mas essa é uma posição minha. Eu reivindico sim a feminilidade. A tensão reside
+        quando alguns ativistas querem negar tudo que é acadêmico. Não é possível fazer isso! As pessoas trans, precisam
+        adentrar a academia, que é uma instituição produtora de conhecimentos lidos como verdade, e narrar suas próprias
+        vivências. É necessário ocuparmos os espaços que sempre nos foram historicamente negados. A academia é instrumento.
+        Assim como o saber o é. A primeira travesti brasileira a obter o título de doutora foi minha muito amiga Luma Nogueira
+        de Andrade. Ela sempre frisou que o caminho dela para a emancipação estava na educação, no acesso ao saber e ao conhecimento.
+        As identidades não binárias como a minha e muitas outras são de difícil intelecção pra quem não é da academia. Isso
+        porque não há trabalhos acadêmicos sobre o tema, e porque não há critérios visuais de identificação do “não binário”,
+        e sabemos que, para o olhar da norma, a leitura, ou seja, a capacidade de intelecção, é vital para o processo de
+        taxonomização. Ano que vem sairá um artigo meu, em uma revista americana sobre o universo “não binário”. Mas devemos
+        lembrar que é importante reconhecer que a academia e a Teoria Queer são ferramentas que podemos usar para materializar
+        o discurso sobre nossas identidades. Austin dizia que falar é fazer. Que a linguagem e os atos de fala, tornam as
+        coisas reais no mundo porque constrangem seu entorno. A academia, marcadamente a Teoria Queer e a desconstrução de
+        Derrida trouxeram a ideia dos binários e dos não binários a serem rompidos e desconstruídos. Por que, então, não
+        usar as ferramentas e construir um saber que emerge das nossas vivências? Paulo Freire sempre dizia, que o saber
+        popular precisa manter com o saber acadêmico uma relação de mão dupla, dialógica. A teoria não constrói nossa identidade,
+        mas nos ajuda a enunciá-la e as vezes, a afirmá-la politicamente. É errado, portanto, exigir de travestis e pessoas
+        trans que aceitem a teoria queer. Ou que saibam dela. Principalmente quando muitas, a maioria de nós na verdade,
+        está fora da escola e da universidade. Enquanto nos prostituimos, não temos tempo pra pensar o “pronome” mais apropriado
+        a ser usado. Mas isso não implica na negação de todo e qualquer saber acadêmico. É preciso conciliar as vivências
+        com a academia, e na fusão delas, produzir um pensar e uma política identitária marcadamente brasileira. Um apelo
+        final Precisamos imensamente construir um saber nosso, um saber dos corpos subalternizados brasileiros. Não somos
+        os mesmos corpos norte-americanos. Somos corpos com nossas próprias marcas e precisamos, a partir delas, constituir
+        uma teoria que nos empodere para, a partir daí, podermos começar a pensar numa política das identidades. Há de se
+        convir que o termo “queer” está na moda. Muitos se narram como queer, porém, é uma pós-modernidade que sai com água,
+        e cujo emprego sugere privilégios. Queer não é arrasar na balada. É uma narrativa de si, uma narrativa constante.
+        É comum muitas pessoas rejeitarem o termo queer dizendo que “isso é academicismo”. Ora, tudo bem, mas enquanto as
+        pessoas trans não lutarem por si e pelas suas companheiras, não seremos capaz de produzir um saber formal a partir
+        de nossas vivências. Um saber próprio para a experiência brasileira da não conformidade as normas de gênero. Contudo,
+        a simples negação do termo nos conduz ao risco do colonialismo. De deixarmos espaço para que nossas identidades sejam
+        vistas apenas com o olhar colonizador de um termo e teoria estrangeiros. Por esse motivo, se faz necessário que levemos
+        esse debate para além da academia e dar voz às diferentes maneiras com que pessoas trangêneros brasileiras narram
+        suas histórias.
+    </div>
+    <div class="texto  texto-vermelho2" id="idtexto7" onclick="MostraTexto('idtexto7',7);">
+        <h2>Sonegação de impostos é sete vezes maior que a corrupção</h2>
+        Deixa-se de recolher 500 bilhões de reais por ano aos cofres públicos no País, ao passo que o custo anual médio da corrupção
+        no Brasil, em valores de 2013, corresponde a 67 bilhões anuais Compartilhar no Facebook Tweet Compartilhar no LinkedIn
+        Compartilhar no Google+ Ilustração: Ana Beatriz Pádua Sonegação No País que é vice em sonegação, só a corrupção interessa
+        Leia também Investigada no Brasil, Kroll vai rastrear contas da Lava Jato Empresa alemã diz ter pago 1 milhão de
+        euros em propina na Copa Os caminhos da política econômica de Joaquim Levy CNT/MDA: 59,7% apoiariam o impeachment
+        Nenhum assunto rivaliza com as notícias sobre corrupção na cobertura e no destaque dados pela mídia, um sinal da
+        importância devidamente atribuída ao problema pelos cidadãos. Males de proporções maiores, porém, continuam na sombra.
+        A sonegação de impostos, por exemplo, tem sete vezes o tamanho da corrupção, mas recebe atenção mínima da sociedade
+        e do noticiário. Deixa-se de recolher 500 bilhões de reais por ano aos cofres públicos no País, calcula o presidente
+        do Sindicato Nacional dos Procuradores da Fazenda Nacional, Heráclio Camargo. O custo anual médio da corrupção no
+        Brasil, em valores de 2013, corresponde a 67 bilhões anuais, informa José Ricardo Roriz Coelho, diretor-titular do
+        Departamento de Competitividade e Tecnologia Federação das Indústrias do Estado de São Paulo, com base em cálculos
+        recentes. Para alertar a sociedade da importância de se combater a sonegação, Camargo, inaugurou na quarta-feira
+        18, em Brasília, um sonegômetro e uma instalação denominada lavanderia Brasil. Na inauguração, o medidor mostrava
+        um total sonegado de 105 bilhões desde janeiro, dos quais 80 bilhões escoados por meio de operações de lavagem ou
+        manipulação de recursos de origem ilegal para retornarem à economia formal com aparência lícita. Em um exemplo citado
+        pelo Sindicato, um comerciante simula a compra de 50 milhões de litros de combustível, adquire só 10 milhões de litros
+        físicos e obtém, mediante pagamento, notas fiscais falsas no valor de 40 milhões. Ele negociou de fato só aqueles
+        10 milhões, mas trouxe para a economia formal os 40 milhões de origem ilícita por meio desse mecanismo de lavagem,
+        sem recolher os impostos devidos. Tanto a parcela superfaturada, os recursos de propinas, tráfico de drogas, de armas
+        e de pessoas, contrabando, falsificações, corrupção e renda sonegada precisam retornar à economia com aparência de
+        origem lícita, para as atividades criminosas prosseguirem. A livre atuação no Brasil das empresas off shores, ou
+        registradas em paraísos fiscais, agrava a sonegação. Há laços fortes do País com esses redutos de burla dos fiscos
+        dos estados nacionais, na prática nossos grandes parceiros comerciais. A principal razão é o tratamento preferencial
+        dado ao capital externo, subtaxado quando da sua remessa de lucros ao exterior, afirma-se no site Tax Justice Network.
+        “Todos os países que não taxam ganhos de capital, ou o fazem com base em alíquota inferior a 20% são considerados
+        paraísos fiscais no Brasil. Ironicamente, esse país tem diversas situações de ganhos de capital taxados em menos
+        de 20%.” Não é bem assim, explica a Receita Federal. “A definição de paraíso fiscal na legislação brasileira não
+        leva em conta apenas a tributação de ganhos de capital, mas sim a tributação da renda. A tributação da renda das
+        pessoas físicas é de 27,5% e das pessoas jurídicas é de 25% de imposto de renda, mais 9% de Contribuição Social sobre
+        o Lucro Líquido.” Mas a taxação de ganhos de capital, “em regra de 15%”, é baixa em termos mundiais e o trânsito
+        do dinheiro é facilitado pela parceria comercial com os paraísos fiscais. Pessoas físicas recorrem também aos paraísos
+        fiscais para não pagar impostos sobre os seus ganhos, lícitos ou não. No caso das 8.667 contas de brasileiros descobertas
+        no HSBC da Suíça (4.º maior número de correntistas no mundo), Camargo vê “com certeza indícios de conexão com paraíso
+        fiscal, porque essas contas eram secretas, só vazaram porque um ex-funcionário do HSBC divulgou a sua existência.
+        Há indícios a serem investigados pelas autoridades brasileiras, de evasão de divisas e crime de sonegação fiscal.”
+        Os impostos mais sonegados são o INSS, o ICMS, o imposto de renda e as contribuições sociais pagas com base nas declarações
+        das empresas. Os impostos indiretos, embutidos nos produtos e serviços, e o Imposto de Renda retido na fonte, incidentes
+        sobre as pessoas físicas, são impossíveis de sonegar. A pessoa jurídica cobra os tributos, mas algumas vezes não
+        os repassa ao governo. A sonegação acompanha a concentração de renda. Os processos envolvem 3,54 milhões de devedores,
+        mas os chamados grandes devedores são apenas 18.728. Para dar conta dos 7,48 milhões de processos em tramitação,
+        há só 2.072 procuradores, auxiliados por 1.518 servidores, menos de dois por procurador. O sindicato reivindica o
+        preenchimento urgente dos 328 cargos vagos de procurador da Fazenda Nacional abertos. Quem tem mais, deve pagar mais,
+        estabelece a Constituição, em um preceito tão desobedecido quanto o do Imposto sobre Grandes Fortunas, à espera de
+        regulamentação. Nesse assunto, o Brasil está na contramão. A partir de 2012, com a piora da economia e da arrecadação,
+        países europeus que haviam concedido desonerações tributárias e cortado gastos, voltaram a aumentar o imposto de
+        renda nas alíquotas mais altas e elevaram os impostos sobre propriedade, diz a professora Lena Lavinas, da Universidade
+        Federal do Rio de Janeiro. “Aqui, não conseguimos fazer isso porque o IPTU não é arrecadado pela União, mas pelos
+        municípios, então você não mexe na propriedade. Impostos que tratam da concentração da renda, do patrimônio, deveriam
+        estar nas mãos da União. A reforma tributária, segundo algumas visões do Direito, é tratada como uma questão de simplificação.
+        Não é o caso, muito pelo contrário, tem que complexificar mais, dentro de uma estrutura adequada em termos de progressividade,
+        de taxar realmente o patrimônio, os ativos, essa coisa toda.” A estrutura do nosso sistema tributário, diz a professora,
+        “é uma tragédia, regressiva, picada, os impostos não vão para as mãos que deveriam ir. Por que não se consegue repensar
+        o IVA, o ICMS? Porque são dos estados. Impostos e medidas que poderiam favorecer uma progressividade, não se consegue
+        adotar, por conta do nosso caráter federativo.” A sonegação é uma possibilidade aberta para as empresas pela estrutura
+        tributária, conforme mencionado acima, e quando pegas, são beneficiadas pela discrição das autoridades. Também nesse
+        quesito, o Brasil segue na contramão. Nos Estados Unidos, por exemplo, os próprios políticos tratam de alardear os
+        nomes das empresas flagradas em irregularidades. Por que o Brasil, não dá publicidade aos nomes dos grandes sonegadores,
+        o que possivelmente contribuiria para desestimular o não recolhimento de tributos e impostos? Segundo Camargo, há
+        divulgação, mas ela não é satisfatória. “Existe um sítio na Procuradoria-Geral da Fazenda Nacional que enseja a consulta
+        dos CNPJs ou CFPs dos devedores, mas sem informar quais são os valores devidos. Não temos uma cultura de transparência
+        no Brasil. Essas restrições são inaceitáveis e nós devemos caminhar para uma maior transparência, com a divulgação
+        dos nomes e respectivos valores devidos.”
+    </div>
+    <div class="texto  texto-azul-escuro" id="idtexto8" onclick="MostraTexto('idtexto8',8);">
+        <h2>6 DEFENSORES DOS ÚLTIMOS GORILAS-DAS-MONTANHAS FORAM ASSASSINADOS NO PARQUE NACIONAL DE VIRUNGA</h2>
+        Eles dedicaram suas vidas à proteção da espécie gorila-das-montanhas (Gorilla beringei beringei) na República Democrática
+        do Congo. Tinham entre 22 e 30 anos, os 5 rangers e o motorista mortos em uma emboscada no Parque Nacional de Virunga.
+        Este foi o pior ataque de todos os tempos, feito contra guardas florestais que trabalham para proteger a "casa" da
+        maior população de gorila-das-montanhas do mundo. Além das 6 vítimas, outro ranger ficou ferido, como afirma a nota
+        oficial publicada no site do parque. Estes são os seus nomes: Jean de Dieu BYAMUNGU, 25 anos Barthelemie KAKULE MULEWA,
+        28 anos Théodore KASEREKA PRINCE, 25 anos Liévin MUMBERE KASUMBA, 28 anos Kananwa SIBOMANA, 22 anos ILA MURANDA,
+        30 anos O ataque ocorreu na parte central da vasta reserva, conhecida mundialmente por sua população de gorilas.
+        175 guardas florestais perderam a vida para proteger os animais neste parque nos últimos 20 anos. Infelizmente, há
+        muitos interesses econômicos que se contrastam com a conservação do local: da caça ilegal à exploração criminosa
+        de outros recursos naturais, como a madeira das florestas de vulcões que é ilegalmente convertida em carvão. Atividades
+        que muitas vezes servem para financiar um crime generalizado ligado aos interesses dos senhores da guerra. gorilas
+        das montanhas congoFoto: Brent Stirton O Parque Nacional de Virunga, que faz fronteira com o Parque Nacional dos
+        Vulcões, é a área protegida mais antiga da África. Fundado em 1925 para defender sua rica biodiversidade, possui
+        a presença dos últimos 880 gorilas-das- montanhas. Em 1979, foi classificado como Património Mundial pela UNESCO.
+        Trata-se de uma área de 7.800 quilômetros quadrados, que inclui florestas e savanas, vulcões ativos e lagos, onde
+        vivem os extraordinários gorilas-das-montanhas. Ali fora assassinada, provavelmente pelos mesmos caçadores de gorilas
+        que combatia, Dian Fossey, zoóloga norte-americana conhecida pelo seu trabalho de conservação junto a estes animais.
+        Sua vida fora retratada no filme Gorillas in the Mist: The Story of Dian Fossey. Não obstante o legado de Dian (que
+        promoveu a consciência mundial sobre a extinção do gorila-das-montanhas) o parque continua sendo palco de uma longa
+        batalha contra interesses criminosos que procuram saquear os recursos naturais do local. Emmanuel De Merode, diretor
+        do parque, e ele próprio ferido em um ataque há dois anos, disse: "Virunga perdeu alguns homens extraordinariamente
+        corajosos que estavam profundamente comprometidos em trabalhar para suas comunidades. É inaceitável que os rangers
+        de Virunga continuem a pagar o preço mais alto em defesa do nosso patrimônio comum e estamos devastados pelo fato
+        de que suas vidas foram interrompidas neste caminho. Nós enviamos nossas mais profundas condolências às famílias,
+        esposas e filhos que deixam e estão empenhados em criar um futuro melhor para a República Democrática do Congo".
+        Ver imagem no TwitterVer imagem no Twitter CITES ✔ @CITES We're deeply saddened to learn that 6 park rangers in DRC's
+        Virunga #gorilla park were killed yesterday by militia men https://goo.gl/AR7jtD via @guardian More than 170 rangers
+        have died protecting #wildlife at the Virunga National Park! 03:47 - 10 de abr de 2018 2.836 3.434 pessoas estão
+        falando sobre isso Informações e privacidade no Twitter Ads "Nascido para proteger os últimos gorilas-das-montanhas
+        dos caçadores e da violência humana em uma área ensanguentada por guerras e conflito, hoje o Parque Nacional de Virunga
+        é um verdadeiro milagre cheio de vida, de biodiversidade, mas também de escolas, pequenas economias, energia sustentável,
+        empregos: representa a possibilidade de um futuro diferente no coração da África para milhares de famílias. Um grande
+        exemplo de conservação e economia verde em um continente devastado "disse Isabella Pratesi, diretora da Conservação
+        do WWF acrescentando: "Para defender tudo isso e garantir um futuro aos últimos gorilas-das-montanhas, devemos nos
+        tornar 'todos os rangers' do parque Virunga, juntando-se à incrível batalha que este pequeno grande parque está realizando,
+        ao custo da vida de seus heróis".
+    </div>
+    <div class="texto  texto-roxo" id="idtexto9" onclick="MostraTexto('idtexto9',9);">
+        <h2>MORRE O ÚLTIMO RINOCERONTE-BRANCO-DO-NORTE MACHO DO MUNDO</h2>
+        Esta é uma notícia triste para todas aquelas pessoas preocupadas com a vida e com o meio ambiente. Sudan, o último rinoceronte-branco-do-norte
+        macho do mundo, morreu no último dia 19, aos 45 anos de idade. A reserva natural Ol Pejeta, no Quênia, onde Sudan
+        vivia desde 2009, informou a morte do animal, que já estava bastante doente. Devido a sua debilidade, a reserva decidiu
+        abatê-lo. Com a morte de Sudan, restam apenas dois rinoceronte-branco-do-norte no mundo, que são fêmeas. Logo, a
+        iminente extinção da espécie (Ceratotherium simum cottoni) pode estar bem próxima. E pensar que estes animais estão
+        à beira da extinção por terem sido objetos da ganância humana por causa de seus cornos, fonte de renda em um comércio
+        cruel. De um dia para o outro, a saúde de Sudan piorou demasiado, a ponto de ele sequer conseguir levantar-se. Por
+        causa do seu sofrimento, a equipe de veterinários do zoológico Dver Kralove, o Ol Pejeta e os Serviços de Fauna Selvagem
+        do Quénia decidiram realizar no animal o procedimento da eutanásia. Devido à idade avançada, Sudan tinha problemas
+        ósseos e musculares. Nos seus últimos meses de vida, vinha lutando contra uma infecção na pata esquerda. Desde o
+        início deste mês, o ferimento ficou mais infectado, agravando ainda mais a sua já frágil saúde. sudan 2 Sudan habitava
+        o zoológico de Dver Kralove, na República Checa. Mudou-se para a reserva natural de Ol Pejeta para viver junto às
+        duas últimas fêmeas da espécie, Najin, 27 anos, e Fatu, 17 anos – respectivamente filha e neta de Sudan. Como Sudan
+        já estava muito velho para a procriação natural, a esperança de manter viva a espécie estava na utilização da técnica
+        de fertilização artificial. Entretanto, como esse procedimento é muito caro, custando cerca de 9 milhões de dólares,
+        foi feita uma campanha na rede social Tinder para angariar recursos dos usuários. A fertilização artificial em Najin,
+        a única fêmea fértil, é a última esperança para que a subespécie dos rinocerontes-branco-do-norte sobreviva.
+    </div>
+    <div class="texto  texto-amarelo-queimado " id="idtexto10" onclick="MostraTexto('idtexto10',10);">
+        <h2>Os insetos estão sumindo</h2>
+        Um estudo alemão que reuniu dados de quase três décadas confirma: o número de insetos voadores está caindo substancialmente.
+        O fenômeno é mundial e tem profundas implicações para a vida na Terra N° Edição: 537 Texto: Evanildo da Silveira
+        28/02/2018 Share on Facebook Tweet on Twitter Um terço das espécies de borboletas do mundo registra declínio atualmente
+        (Foto: iStockphotos) Muitos insetos voadores são bichinhos que incomodam. Eles esvoaçam em torno das pessoas, zunem,
+        dão picadas e um grande número deles pode causar ou transmitir doenças. Por isso, o resultado de um estudo realizado
+        durante 27 anos na Alemanha, que aponta queda de três quartos no volumes deles, pode parecer uma boa notícia para
+        muita gente. Mas na verdade não há o que comemorar. De todas as espécies de animais conhecidas, mais da metade são
+        desses invertebrados. Só por isso já seriam importantes, mas eles são ainda responsáveis pela polinização de 80%
+        das plantas silvestres e de 84% das culturas agrícolas, e servem de comida para 60% dos pássaros, além de alimentarem
+        pequenos mamíferos, répteis, anfíbios e até peixes. O estudo alemão foi feito pela Sociedade Entomológica de Krefeld
+        entre 1989 e 2016, e seus resultados, divulgados em outubro, alarmaram os cientistas. Durante esses 27 anos, os pesquisadores
+        coletaram insetos em 63 áreas de proteção ambiental do país. Eles constataram que, ao longo desse período, a biomassa
+        total dos voadores caiu 76% em comparação a 1989, chegando a 82% no meio do verão, quando eles estão mais ativos.
+        O tamanho da queda surpreendeu os cientistas. “Há muito tempo já se suspeitava dessa redução, mas a pesquisa mostrou
+        que ela é muito maior do que imaginávamos”, disse Caspar Hallmann, da Universidade Rad­boud, na Holanda, um dos autores
+        do trabalho, na ocasião da sua divulgação. De acordo com ele, levantamentos anteriores já haviam detectado um declínio
+        da diversidade e abundância dos insetos, mas isso se limitava a uma ou outra espécie ou grupo taxonômico, enquanto
+        o estudo de que fez parte monitorou a biomassa de todos os tipos ao longo de um período extenso. Ameaça global Segundo
+        a bióloga Helena Piccoli Romanowski, do Departamento de Zoologia da Universidade Federal do Rio Grande do Sul (UFRGS),
+        na Europa e na América do Norte são realizados monitoramentos para alguns grupos de insetos há décadas. E existem
+        evidências que apoiam a ideia de que as populações deles estão ameaçadas globalmente. “Por exemplo, um estudo de
+        2014 indicou um declínio de 45% na abundância desses invertebrados na maioria dos locais monitorados em todo o mundo”,
+        diz. Os insetos voadores colaboram na polinização (acima, abelha coberta de pólen) e servem de alimento para outras
+        espécies (abaixo, azulão americano) “Estima-se que as populações europeias de borboletas – certamente o grupo mais
+        bem estudado – tenham dimi­nuído em 50% nas últimas duas ou três décadas. Dados para abelhas e mariposas também apontam
+        nessa direção.” Um exemplo desses estudos foi divulgado em 2013, nos Estados Unidos. Cinquenta pesquisadores analisaram
+        dados sobre insetos polinizadores silvestres, coletados em 600 áreas de cultivos de frutas ou café em 20 paí­ses.
+        Eles observaram que esses animais são melhores polinizadores do que as abelhas domésticas e que a diminuição deles,
+        devido à perda de seu habitat pelo aquecimento global, ameaça a produção agrícola mundial. Na Espanha, cientistas
+        do Centro de Pesquisas Ecológicas e Aplicações Florestais e do Museu de Ciências Naturais de Granollers (Barcelona)
+        estudaram, durante mais de duas décadas, 66 das 200 espécies de borboletas presentes na Catalunha. Eles verificaram
+        que cerca de três quartos delas estão em declínio, conclusão que pode ser extrapolada para o resto da Espanha. “A
+        redução é alarmante e aumenta a cada ano”, declarou recentemente Constantin Stefanescu, um dos cientistas do grupo.
+        “Também assustam os dados de 2015 e 2016, os mais baixos registrados desde 1994.” Os pesticidas estão entre os principais
+        suspeitos de causar o problema (Foto: iStockphotos) No Brasil, os estudos são ainda insuficientes, mas vêm crescendo.
+        “As pesquisas, desenvolvidas principalmente por instituições públicas de ensino superior, aumentaram muito nas últimas
+        décadas e têm gerado muitos dados”, diz Helena. “Mas ainda existe muito mais o que conhecer do que o que já sabemos.”
+        Por motivos óbvios, segundo ela, como a falta de recursos e as imensas distâncias do país, a maior parte do que se
+        conhece é sobre a fauna que vive próxima aos centros de pesquisa. “Mesmo assim, graças a iniciativas de fomento de
+        órgãos públicos direcionadas ao conhecimento dela, um progresso substancial tem sido feito”, conta. “O que é lamentável
+        é o retrocesso que está acontecendo no momento, com os cortes de financiamento.” Comunidade dizimada Para Helena,
+        o estudo feito na Alemanha é extremamente importante e os resultados revelados preocupam. A queda registrada excede
+        o declínio estimado de 58% na abundância global de vertebrados selvagens ao longo de um período de 42 anos encerrado
+        em 2012. “O resultado é mais dramático quando levamos em conta que não são apenas as espécies vulneráveis, mas a
+        comunidade de insetos voadores como um todo, que foi dizimada nas últimas décadas”, diz. “Além disso, o trabalho
+        foi realizado em áreas de proteção da natureza, que seriam destinadas a preservar as funções do ecossistema e a biodiversidade,
+        e o declínio não é específico para determinados tipos de habitat.” As abelhas são as mais castigadas: 30% das colônias
+        somem por ano no Hemisfério Norte (Foto: iStockphotos) Entre as principais causas relacionadas à diminuição dos insetos
+        ao redor do mundo estão a transformação e a destruição dos seus habitats. No caso do estudo feito na Alemanha, os
+        pesquisadores não apontam uma causa específica para o que verificaram. Eles descartaram, no entanto, qualquer relação
+        do fenômeno com o tipo de habitat ou com mudanças climáticas. Embora não tenham coletados dados sobre pesticidas,
+        esses produtos estão entre os principais suspeitos, pois 94% das áreas­ protegidas onde foi realizado o trabalho
+        são cercadas por plantações. Para os pesquisadores, há fatores de grande escala envolvidos, mas quais são eles apenas
+        novas pesquisas poderão dizer. É praticamente impossível imaginar vida humana sem os insetos. Além da polinização
+        e de servirem de alimentos para outros animais, como herbívoros, eles são cruciais na dinâmica das populações de
+        vegetais. Desempenham um papel muito importante na formação e manutenção da estrutura do solo e na decomposição de
+        matéria orgânica, permitindo que os nutrientes voltem à terra e sejam aproveitados pelas plantas. “Esses invertebrados
+        também são fundamentais para a produção de alimentos para as pessoas, já que a maioria das nossas culturas depende
+        deles para a polinização, para produção de frutos e sementes”, explica Helena. “Eles viveriam sem problemas na ausência
+        da humanidade, mas nós não sobreviveríamos sem eles.” Perda sentida Dentre todos os insetos cujas populações estão
+        diminuindo, os que mais preocupam são as abelhas. Elas são muito mais do que meras produtoras de mel. Segundo estimativas
+        da Organização das Nações Unidas para a Alimentação e a Agricultura (FAO), elas são responsáveis pela polinização
+        de 73% das plantas cultivadas para alimentação humana. Em termos econômicos, dados de 2007, publicados no livro Polinizadores
+        no Brasil: contribuição e perspectivas para a biodiversidade, uso sustentável, conservação e serviços ambientais,
+        um dos vencedores do Prêmio Jabuti de 2013, mostram que o valor global do mel alcançou US$ 1,5 bilhão, enquanto o
+        dos serviços de polinização chegou a US$ 212 bilhões. Não é à toa, portanto, que vários países se mostrem preocupados
+        com o declínio das colmeias e estejam realizando diversos estudos nos últimos anos. O problema tem até nome: Desordem
+        do Colapso das Colônias (CCD, na sigla em inglês). Ele foi detectado pela primeira vez em 2007, no Hemisfério Norte,
+        onde atualmente cerca de 30% das colônias desaparecem por ano. No Brasil, o fenômeno foi percebido pela primeira
+        vez em 2011. Estudos realizados em países da União Europeia, no inverno de 2013-2014, revelaram mortalidade de 5%
+        na Espanha, 14% na França e 15% na Suécia. Não há uma causa única para o fenômeno, mas várias. Entre as mais comuns
+        estão as mudanças climáticas, a destruição de habitats, herbicidas e pesticidas, ácaros, como o Varroa, e o parasita
+        Nosema apis.
+    </div>
+    <script src="js/texto.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,391 @@
+<DOCTYPE html>
+  <html lang="pt-br">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="weather.css">
+    <link rel="stylesheet" media="(max-width:600px)" href="weather-2-small.css">
+    <link rel="stylesheet" media="(min-width:601px)" href="weather-2-large.css">
+    <!-- Quando o navegador tiver entre 0 e 640 pixels de largura, max-640px.css será aplicado.
+Quando o navegador tiver entre 500 e 600 de largura, os estilos em @media serão aplicados.
+Quando o navegador tiver 640 ou mais pixels de largura, min-640px.css será aplicado.
+Quando a largura do navegador for maior do que sua altura, landscape.css será aplicado.
+Quando a altura do navegador for maior do que sua largura, portrait.css será aplicado. -->
+    <link rel="stylesheet" media="(max-width: 640px)" href="max-640px.css">
+    <link rel="stylesheet" media="(min-width: 640px)" href="min-640px.css">
+    <link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">
+    <link rel="stylesheet" media="(orientation: landscape)" href="landscape.css">
+    <link rel="stylesheet" href="weather.css">
+    <!-- Para inserir um ponto de interrupção em 600 pixels -->
+    <link rel="stylesheet" media="(max-width:600px)" href="weather-2-small.css">
+    <link rel="stylesheet" media="(min-width:601px)" href="weather-2-large.css">
+    <!-- PUXA CONFIGURACOES PADROES DE RESOLUCAO DE PAGINA -->
+    <link href="CSS/RESPONSIVO.css" rel="stylesheet" />
+    <title>LOJA</title>
+  </head>
+
+  <body background="imagens/PLANOS DE FUNDOS/loja em desenvolvimento.png">
+
+
+
+
+    <div class="menu" id="teste4" onclick="muda();">
+      <div id="teste1" class="box1">
+          <a class="linkloja" href="index.html">
+              <img src="imagens/BOTOES/btnlinkpaginas1.png" width="100" height="100" />
+          </a>
+      </div>
+      <div id="teste2" class="box2">
+          <a class="linkgaleria" href="LOJA DE PRODUTOS.html">
+              <img src="imagens/BOTOES/btnlinkpaginas2.png" width="100" height="100" />
+          </a>
+      </div>
+      <div id="teste3" class="box3">
+          <a class="linkgaleria" href="GALERIA DE FOTOS.html">
+              <img src="imagens/BOTOES/btnlinkpaginas3.png" width="100" height="100" />
+          </a>
+      </div>
+  </div>
+
+
+    <div class="container1">
+      <div class="box4"></div>
+      <div class="box1">
+        <img src="imagens/PIRAMIDES/triangulo5.png" width="100" height="100">
+              </div>
+
+    </div>
+
+    <div class="container2">
+      <div class="box3"></div>
+      <div class="box2">
+        <img src="imagens/PIRAMIDES/triangulo1.png" width="100" height="100">
+      </div>
+
+    </div>
+
+    <div class="container3">
+             <img src="imagens/PIRAMIDES/triangulo2.png" width="400" height="400">
+      </div>
+
+    </div>
+
+    <div class="aviso">
+      <br>
+      <p>Loja em Desenvolvimento </p>
+      </label>
+    </div>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 350px;
+        background-attachment: fixed;
+                background-repeat: no-repeat;
+                -moz-background-size: cover;
+                background-size: 100%;
+                opacity: inherit 30%;
+      }
+
+      .aviso {
+        width: 700px;
+        height: 200px;
+        position: absolute;
+        top: 50%;
+        left: 0px;
+        background-color: black;
+        text-align:center;
+        font: bold 40px/1.5 sans-serif, arial;
+                color: whitesmoke;
+                z-index: -1;
+      }
+
+      @keyframes elemento {
+        0% {
+          margin-left: 0;
+          width: 100px;
+          height: 100px;
+        }
+
+        100% {
+          margin-left: 0;
+          width: 100px;
+          height: 100px;
+          transform: rotate(60deg)translateX(-50px) translateY(90px)rotateZ(-60deg);
+        }
+      }
+
+      @keyframes elemento2 {
+        0% {
+          margin-left: 0;
+          width: 100px;
+          height: 100px;
+        }
+
+        100% {
+          margin-left: 0;
+          width: 100px;
+          height: 100px;
+          transform: rotate(60deg)translateX(-50px) translateY(110px)rotateZ(-60deg);
+        }
+      }
+
+      @keyframes elemento3 {
+        0% {
+          margin-left: 0;
+          transform: rotateZ(-15deg);
+
+        }
+
+        100% {
+          margin-left: 0;
+          transform: rotate(10deg)translateX(-50px) translateZ(-180px);
+        }
+      }
+
+    
+
+      .container1 {
+        background-color: transparent;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 0px;
+        left: 300px;
+      
+
+      }
+
+      .container2 {
+        background-color: transparent;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 0px;
+        left: 700px;
+
+
+      }
+
+.container3 {
+       
+        position: absolute;
+        top: 400px;
+        left: 900px;
+
+      }
+
+      .box1 {
+        /*transform: translateZ(300px);*/
+        animation: elemento 5s ease-in 0s alternate infinite none running;
+        position: absolute;
+        height: 80px;
+        width: 190px;
+        top: 120px;
+        left: -10px;
+      }
+
+      .box2 {
+        /*transform: translateZ(300px);*/
+        animation: elemento2 5s ease-in 0s alternate infinite none running;
+        position: absolute;
+        height: 80px;
+        width: 80px;
+        top: 300px;
+        left: 100px;
+      }
+
+      .box3 {
+        /*transform: translateZ(300px);*/
+        background-color: black;
+        animation: elemento3 5s ease-in 0s alternate infinite none running;
+        position: absolute;
+        height: 400px;
+        width: 3px;
+        top: -10px;
+        left: 110px;
+      }
+
+      .box4 {
+        /*transform: translateZ(300px);*/
+        background-color: black;
+        animation: elemento3 5s ease-in 0s alternate infinite none running;
+        position: absolute;
+        height:  150px;
+        width: 3px;
+        top: 0px;
+        left:15px;
+      }
+
+
+ @keyframes btn1 {
+        0% {
+          position: absolute;
+          top: 0px;
+          height: 10px;
+          width: 10px;
+
+        }
+        100% {
+          position: absolute;
+          top: 15px;
+          left: 90px;
+          height: 180px;
+          width: 180px;
+          transform: rotate(-60deg)translateX(-30px) translateY(-15px)rotateZ(-12deg);
+        }
+      }
+
+      @keyframes btn2 {
+        0% {
+          position: absolute;
+          top: 0px;
+          height: 10px;
+          width: 10px;
+
+        }
+        100% {
+          position: absolute;
+          top: 90px;
+          left: -50px;
+          height: 180px;
+          width: 180px;
+          transform: rotate(10deg)translateX(10px) translateY(1px)rotateZ(-10deg);
+        }
+      }
+
+      @keyframes btn3 {
+        0% {
+          position: absolute;
+          top: 0px;
+          height: 10px;
+          width: 10px;
+
+        }
+        100% {
+          position: absolute;
+          top: 10px;
+          left: -170px;
+          height: 180px;
+          width: 180px;
+          transform: rotate(60deg)translateX(20px) translateY(15px)rotateZ(8deg);
+        }
+      }
+
+      .menu {
+            background-image: url('imagens/OLHOS/btnolhofechado.png');
+            background-repeat: no-repeat;
+            background-size: 100%;            
+            height: 70px;
+            width: 70px;
+            position: absolute;
+            top: 0px;
+            left: 45%;
+        }
+
+
+        .menuA {
+            background-image: url('imagens/OLHOS/btnolhoaberto.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            height: 70px;
+            width: 70px;
+            position: absolute;
+            top: 0px;
+            left: 45%;
+        }
+
+      .btn1A img {
+        animation: btn1 2s;
+        position: absolute;
+        height: 380px;
+        width: 380px;
+        top: 30px;
+        left: 70px;
+        transform: rotateZ(-68deg);
+      }
+
+      .btn2A img  {
+        animation: btn2 2s;
+        position: absolute;
+        height: 180px;
+        width: 180px;
+        top: 90px;
+        left: -40px;
+        transform: rotateZ(0deg);
+      }
+
+      .btn3A img {
+        animation: btn3 2s;
+        position: absolute;
+        height: 180px;
+        width: 180px;
+        top: 30px;
+        left: -150px;
+        transform: rotateZ(68deg);
+      }
+
+      .btn1 img {
+        height: 0px;
+        width: 0px;
+        opacity: 100%;
+      }
+
+      .btn2 img {
+        height: 0px;
+        width: 0px;
+        opacity: 100%;
+      }
+
+      .btn3 img {
+        height: 0px;
+        width: 0px;
+        opacity: 100%;
+      }
+
+
+    </style>
+
+<script>
+
+ function muda() {
+
+            pag1 = document.getElementById('teste1').className;
+            pag2 = document.getElementById('teste2').className;
+            pag3 = document.getElementById('teste3').className;
+            btnmenu = document.getElementById('teste4').className;
+
+            if (pag1 == 'btn1') {
+                document.getElementById('teste1').className = 'btn1A';
+            } else {
+                document.getElementById('teste1').className = 'btn1';
+            }
+
+            if (pag2 == 'btn2') {
+                document.getElementById('teste2').className = 'btn2A';
+            } else {
+                document.getElementById('teste2').className = 'btn2';
+            }
+
+            if (pag3 == 'btn3') {
+                document.getElementById('teste3').className = 'btn3A';
+            } else {
+                document.getElementById('teste3').className = 'btn3';
+            }
+
+             if ( btnmenu == 'menu') {
+                document.getElementById('teste4').className = 'menuA';
+            } else {
+                document.getElementById('teste4').className = 'menu';
+            }
+
+        }
+
+</script>
+
+
+  </body>
+
+  </html>
